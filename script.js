@@ -1,25 +1,25 @@
 const sentences = [
-  "The quick brown fox jumps over the lazy dog.",
-  "JavaScript makes web pages interactive and dynamic.",
-  "Coding is like solving a puzzle with logic and patience.",
-  "The quick brown fox jumps over the lazy dog.",
-  "JavaScript makes web pages interactive and dynamic.",
-  "Coding is like solving a puzzle with logic and patience.",
-  "The quick brown fox jumps over the lazy dog.",
-  "JavaScript makes web pages interactive and dynamic.",
-  "Coding is like solving a puzzle with logic and patience.",
-  "The quick brown fox jumps over the lazy dog.",
-  "JavaScript makes web pages interactive and dynamic.",
-  "Coding is like solving a puzzle with logic and patience.",
-  "The quick brown fox jumps over the lazy dog.",
-  "JavaScript makes web pages interactive and dynamic.",
-  "Coding is like solving a puzzle with logic and patience.",
-  "The quick brown fox jumps over the lazy dog.",
-  "JavaScript makes web pages interactive and dynamic.",
-  "Coding is like solving a puzzle with logic and patience.",
+    "The quick brown fox jumps over the lazy dog.",
+    "JavaScript makes web pages interactive and dynamic.",
+    "Coding is like solving a puzzle with logic and patience.",
+    "The quick brown fox jumps over the lazy dog.",
+    "JavaScript makes web pages interactive and dynamic.",
+    "Coding is like solving a puzzle with logic and patience.",
+    "The quick brown fox jumps over the lazy dog.",
+    "JavaScript makes web pages interactive and dynamic.",
+    "Coding is like solving a puzzle with logic and patience.",
+    "The quick brown fox jumps over the lazy dog.",
+    "JavaScript makes web pages interactive and dynamic.",
+    "Coding is like solving a puzzle with logic and patience.",
+    "The quick brown fox jumps over the lazy dog.",
+    "JavaScript makes web pages interactive and dynamic.",
+    "Coding is like solving a puzzle with logic and patience.",
+    "The quick brown fox jumps over the lazy dog.",
+    "JavaScript makes web pages interactive and dynamic.",
+    "Coding is like solving a puzzle with logic and patience.",
 ];
-document.getElementById("sentence").innerText=sentences;
-document.getElementById("input").disabled=true;
+document.getElementById("sentence").innerText = sentences;
+document.getElementById("input").disabled = true;
 
 function score() {
     const ipvalue = document.getElementById("input").value.trim();
@@ -34,7 +34,7 @@ function score() {
         if (ipvalue[i] === sentence[i]) {
             accurate++;
         }
-    } 
+    }
 
     const accuracy = Math.round((accurate / sentence.length) * 100);
     document.getElementById("accuracy").innerText = `${accuracy}`;
@@ -46,21 +46,23 @@ function score() {
     const wpm = Math.round((len / 5) / minutes);
 
     document.getElementById("wpm").innerText = `Speed: ${wpm} `;
-  
+
 }
 
 
 
-let options=document.getElementById("fruits")
+let options = document.getElementById("fruits")
 function startGame() {
     document.getElementById("input").disabled = false;
     document.getElementById("input").value = "";
-    document.getElementById("startBtn").disabled=true;
+    document.getElementById("startBtn").disabled = true;
+
+
     let sec = 60; // seconds per round
-    let optionsValue = parseInt(options.value); // total rounds
+    let optionsValue = parseInt(options.value)-1 ; // total rounds
 
     const timing = setInterval(() => {
-        document.getElementById("time").innerHTML = `${optionsValue-1}: ${sec}`;
+        document.getElementById("time").innerHTML = `${optionsValue}: ${sec}`;
         sec--;
 
         if (sec < 0) {
@@ -68,14 +70,14 @@ function startGame() {
             if (optionsValue < 0) {
                 clearInterval(timing); // stop timer exactly
                 document.getElementById("time").innerHTML = `Time's up!`;
-                 
+
                 // call score after timer completes
                 score();
                 document.getElementById("input").disabled = true;
-                document.getElementById("startBtn").disabled=false;
-               
+                document.getElementById("startBtn").disabled = false;
+
             }
-            sec = 60; // reset seconds for next round
+            sec = 60; 
         }
     }, 1000);
 }

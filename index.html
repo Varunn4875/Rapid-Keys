@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rapid-Keys</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <div class="container">
@@ -16,9 +17,9 @@
         <option value="1">1min</option>
         <option value="5">5min</option>
     </select>
-      <p>⏱ Time -  <span id="time">0</span></p>
-      <p>💨 Speed: <span id="wpm">0</span> WPM</p>
-      <p>🎯 Accuracy: <span id="accuracy">0</span>%</p>
+      <p><i class="fa-solid fa-stopwatch"></i> Time -  <span id="time">0</span></p>
+      <p><i class="fa-solid fa-gauge"></i> Speed: <span id="wpm">0</span> WPM</p>
+      <p><i class="fa-solid fa-check"></i> Accuracy: <span id="accuracy">0</span>%</p>
     </div>
     <button id="startBtn" onclick="startGame()">Start Test</button>
   </div>
