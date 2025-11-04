@@ -59,7 +59,7 @@ function startGame() {
     document.getElementById("startBtn").disabled = true;
 
 
-    let sec = 10; // seconds per round
+    let sec = 60; // seconds per round
     let optionsValue = parseInt(options.value)-1 ; // total rounds
 
     const timing = setInterval(() => {
@@ -78,7 +78,7 @@ function startGame() {
                 document.getElementById("startBtn").disabled = false;
 
             }
-            sec = 10; 
+            sec = 60; 
         }
     }, 1000);
 }
