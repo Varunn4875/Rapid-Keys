@@ -23,32 +23,32 @@ console.log([...sentencez])
 document.getElementById("input").disabled = true;
 
 function score() {
-    const ipvalue = document.getElementById("input").value.trim();
-    let accurate = 0;
+  const ipvalue = document.getElementById("input").value; // don't trim here (spaces matter)
+  const ref = sentencez; // reference sentence
 
-    const sentence = sentencez; // join sentences with spaces
-    console.log("Full sentence:", sentence);
+  // Count correct characters (treat missing chars as wrong)
+  let correct = 0;
+  for (let i = 0; i < ref.length; i++) {
+    if (ipvalue[i] && ipvalue[i] === ref[i]) correct++;
+  }
 
-    const minLength = Math.min(ipvalue.length, sentencez.length);
+  // Accuracy relative to full reference length
+  const accuracy = Math.round((correct / ref.length) * 100);
+  document.getElementById("accuracy").innerText = `${accuracy}`;
+  console.log("Correct chars:", correct, "of", ref.length, "=>", accuracy);
 
-    for (let i = 0; i < minLength; i++) {
-        if (ipvalue[i] === sentencez[i]) {
-            accurate++;
-        }
-    }
-
-    const accuracy = Math.round((accurate / sentencez.length) * 100);
-    document.getElementById("accuracy").innerText = `${accuracy}`;
-    console.log("Accuracy:", accuracy);
-
-    const len = ipvalue.length;
-    const totalSeconds = parseInt(options.value) * 5; // each round = 5 seconds
-    const minutes = totalSeconds / 60;
-    const wpm = Math.round((len / 5) / minutes);
-
-    document.getElementById("wpm").innerText = `Speed: ${wpm} `;
-
+  // WPM (keep your current logic or use elapsedSeconds)
+  const len = ipvalue.split(" ").length;
+  const totalSeconds = parseInt(options.value)
+//   const totalSeconds = parseInt(options.value) * 5; 
+//   const minutes = totalSeconds / 60;
+//   const wpm = Math.round((len / 5) / minutes);
+  document.getElementById("wpm").innerText = `${len/totalSeconds}`;
 }
+
+
+
+  
 
 
 
@@ -59,7 +59,7 @@ function startGame() {
     document.getElementById("startBtn").disabled = true;
 
 
-    let sec = 60; // seconds per round
+    let sec = 10; // seconds per round
     let optionsValue = parseInt(options.value)-1 ; // total rounds
 
     const timing = setInterval(() => {
@@ -78,7 +78,7 @@ function startGame() {
                 document.getElementById("startBtn").disabled = false;
 
             }
-            sec = 60; 
+            sec = 10; 
         }
     }, 1000);
 }

@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Quicksand:wght@300..700&display=swap');
+
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Assistant", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
   background: white;
   display: flex;
   justify-content: center;
@@ -10,7 +15,7 @@ body {
 .container {
   padding: 30px;
   border-radius: 12px;
-  width:100%;
+  width:50%;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   text-align: center;
   align-items: center;
@@ -18,9 +23,10 @@ body {
 }
 
 #sentence {
-  font-size: 18px;
+  font-size: 20px;
   margin: 20px 0;
   user-select: none;
+  font-weight: 700;
 }
 
 textarea {
@@ -52,5 +58,6 @@ button:hover {
 .fruits{
   border: none;
   font-size: 16px;
+  font-weight: 700;
 
 }
