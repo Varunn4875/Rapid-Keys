@@ -43,6 +43,7 @@ for (let i = 0; i < minLength; i++) {
   // WPM (keep your current logic or use elapsedSeconds)
   const len = ipvalue.split(" ").length;
   const totalSeconds = parseInt(options.value)
+  console.log(totalSeconds)
 //   const totalSeconds = parseInt(options.value) * 5; 
 //   const minutes = totalSeconds / 60;
 //   const wpm = Math.round((len / 5) / minutes);
@@ -60,6 +61,13 @@ function startGame() {
     document.getElementById("input").disabled = false;
     document.getElementById("input").value = "";
     document.getElementById("startBtn").disabled = true;
+
+    document.getElementById("input").addEventListener("keydown", (e) => {
+  if (e.key === "Backspace") {
+    e.preventDefault();
+  }
+});
+
 
 
     let sec = 60; // seconds per round
