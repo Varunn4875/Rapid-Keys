@@ -23,14 +23,17 @@ console.log([...sentencez])
 document.getElementById("input").disabled = true;
 
 function score() {
-  const ipvalue = document.getElementById("input").value; // don't trim here (spaces matter)
-  const ref = sentencez; // reference sentence
+ const ipvalue = document.getElementById("input").value;
+const ref = sentencez;
 
-  // Count correct characters (treat missing chars as wrong)
-  let correct = 0;
-  for (let i = 0; i < ref.length; i++) {
-    if (ipvalue[i] && ipvalue[i] === ref[i]) correct++;
-  }
+let correct = 0;
+const minLength = Math.min(ipvalue.length, ref.length);
+
+for (let i = 0; i < minLength; i++) {
+  console.log(ipvalue[i], ref[i]);
+  if (ipvalue[i] === ref[i]) correct++;
+}
+
 
   // Accuracy relative to full reference length
   const accuracy = Math.round((correct / ref.length) * 100);
