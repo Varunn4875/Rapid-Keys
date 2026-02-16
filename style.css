@@ -216,3 +216,20 @@ button:disabled {
     width: 100%;
   }
 }
+/* Character highlighting */
+.correct {
+  color: #22c55e; /* Green */
+}
+
+.wrong {
+  color: #ef4444; /* Red */
+}
+
+.current {
+  border-bottom: 2px solid #7a3cf8;
+}
+
+/* Smooth transition */
+#sentence span {
+  transition: 0.15s ease;
+}
